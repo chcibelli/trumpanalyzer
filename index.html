@@ -6,6 +6,7 @@
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="js/autosize.min.js"></script>
 		<script type="text/javascript" src="js/jquery-google-sheet-to-json.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -134,7 +135,8 @@
 
 				var fraseMaxima = '';
 				var max = 0;
-
+				var fid = 0;
+				var sid = 0;
 				$.each(jsonData, function(key, value) {
 					var frase = value.frases;
 					var tags = value.tag.split(',');
@@ -147,14 +149,19 @@
 							count = count + (inputData.match(new RegExp(t, "g")) || []).length;
 						}
 					}
+					
+					fid = fid + 1;
 
 					if (count) {
 						if (count > max) {
 							max = count;
 							fraseMaxima = frase;
+							sid = fid;
 						}
 					}
 				});
+				
+				console.log(fid);
 
 				$("body").removeClass("noTransition");
 				var question = $("textarea").val();
