@@ -135,8 +135,10 @@
 
 				var fraseMaxima = '';
 				var max = 0;
-				var fid = 0;
+				var fid = 1;
 				var sid = 0;
+				var frases = [];
+				
 				$.each(jsonData, function(key, value) {
 					var frase = value.frases;
 					var tags = value.tag.split(',');
@@ -151,6 +153,7 @@
 					}
 					
 					fid = fid + 1;
+					frases.push(frase);
 
 					if (count) {
 						if (count > max) {
