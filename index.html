@@ -131,7 +131,13 @@
 				$("section").addClass("execute");
 
 				if (fraseMaxima == '') {
-					fraseMaxima = 'Haceme otra, eso es una pavada';
+
+					var frasesRandom = [
+					    "Haceme otra, eso es una pavada 1",
+					    "Haceme otra, eso es una pavada 2",
+					    "Haceme otra, eso es una pavada 3"
+					];					
+					fraseMaxima = frasesRandom[Math.floor(Math.random() * frasesRandom.length)]
 					var random = 6;
 				} else {
 					var random = Math.floor(Math.random() * 6);
