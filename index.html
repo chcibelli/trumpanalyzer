@@ -9,6 +9,20 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+		<meta property="og:type" content="article">
+		<meta property="og:title" content="Clarín.com - Preguntale a Trump"/>
+		<meta property="og:description" content="Clarín.com | Preguntale a Trump" />
+		<meta property="og:image" content="http://www.clarin.com/static/CLAClarin/images/Clarin-sahreing-fbk.jpg"/>
+		<meta property="og:image:type" content="image/jpeg" />
+		<meta property="og:image:width" content="300" />
+		<meta property="og:image:height" content="211" />
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@Clarincom">
+		<meta name="twitter:title" content="Clarín.com - Preguntale a Trump">
+		<meta name="twitter:description" content="Clarín.com - Preguntale a Trump">
+		<meta name="twitter:image" content="http://www.clarin.com/static/CLAClarin/images/Clarin-sahreing-fbk.jpg">
+
 	</head>
 
 	<body>
@@ -51,7 +65,7 @@
 			$(".faces span:eq(" + random + ")").addClass("spanOne");
 
 			autosize(document.querySelectorAll('textarea'));
-			
+
 			$(".btnR").click(function() {
 				$("body").addClass("noTransition");
 				$(".question").removeClass("active");
@@ -76,18 +90,18 @@
 			});
 
 			$("#trumpanalyze").click(function() {
-				
+
 				var inputData = $('#inputData').val();
-				
-				if(inputData == '') {
+
+				if (inputData == '') {
 					alert('Preguntame algo');
 					return false;
 				}
 				inputData = inputData.toLowerCase();
-							
-				var fraseMaxima;	
+
+				var fraseMaxima;
 				var max = 0;
-								
+
 				$.each(jsonData, function(key, value) {
 					var frase = value.frases;
 					var tags = value.tag.split(',');
@@ -107,56 +121,66 @@
 						}
 					}
 				});
-				
+
 				$("body").removeClass("noTransition");
 				var question = $("textarea").val();
 				$(".question").html(question);
 				$(".question").addClass("active");
 				$(".contentEdit").addClass("desactive");
 				$("section").addClass("execute");
-				
-				if(fraseMaxima == '') {
+
+				if (fraseMaxima == '') {
 					fraseMaxima = 'Haceme otra, eso es una pavada';
 					var random = 6;
 				} else {
-					var random = Math.floor(Math.random() * 6);					
+					var random = Math.floor(Math.random() * 6);
 				}
 
-				$(".faces span:eq(" + random + ")").addClass("active");				
-				$('#fraseMaxima').html(fraseMaxima);			
-				
+				$(".faces span:eq(" + random + ")").addClass("active");
+				$('#fraseMaxima').html(fraseMaxima);
+
 			});
 		});
 	</script>
-	
+
 	<!--BEGIN: DAX-->
-	  <script type="text/javascript">
-	    // <![CDATA[
-	    function udm_(u){var d=document,l=d.location;ns_pixelUrl=u+"&ns__t="+(new Date().getTime());u=ns_pixelUrl+"&ns_c="+((d.characterSet)?d.characterSet:d.defaultCharset)+"&ns_ti="+escape(d.title)+"&c8="+escape(d.title)+"&c7="+escape(l&&l.href?l.href:d.URL)+"&ns_jspageurl="+escape(l&&l.href?l.href:d.URL)+"&c9="+escape(d.referrer)+"&ns_referrer="+escape(d.referrer);(d.images)?new Image().src=u:d.write('<'+'p><img src="'+u+'" height="1" width="1" alt=""/><'+'/p>');};
-	    udm_('http://b.scorecardresearch.com/b?c1=2&c2=6906409&ns_site=clarin-especiales&name=trump-analyzer.inicio');
-	    // ]]>
+	<script type="text/javascript">
+		// <![CDATA[
+		function udm_(u) {
+			var d = document,
+			    l = d.location;
+			ns_pixelUrl = u + "&ns__t=" + (new Date().getTime());
+			u = ns_pixelUrl + "&ns_c=" + ((d.characterSet) ? d.characterSet : d.defaultCharset) + "&ns_ti=" + escape(d.title) + "&c8=" + escape(d.title) + "&c7=" + escape(l && l.href ? l.href : d.URL) + "&ns_jspageurl=" + escape(l && l.href ? l.href : d.URL) + "&c9=" + escape(d.referrer) + "&ns_referrer=" + escape(d.referrer);
+			(d.images) ? new Image().src = u : d.write('<' + 'p><img src="' + u + '" height="1" width="1" alt=""/><' + '/p>');
+		};
+		udm_('http://b.scorecardresearch.com/b?c1=2&c2=6906409&ns_site=clarin-especiales&name=trump-analyzer.inicio');
+		// ]]>
 	</script>
-	
+
 	<noscript>
-	  <p><img src="http://b.scorecardresearch.com/p?c1=2&amp;c2=6906409&amp;ns_site=clarin-especiales&amp;name=trump-analyzer.inicio" height="1" width="1" alt="*"></p>
+		<p><img src="http://b.scorecardresearch.com/p?c1=2&amp;c2=6906409&amp;ns_site=clarin-especiales&amp;name=trump-analyzer.inicio" height="1" width="1" alt="*">
+		</p>
 	</noscript>
 	<!--END: DAX-->
-	  
+
 	<!-- BEGIN: GOOGLE ANALYTICS-->
-	  <script>
-	      var _gaq = _gaq || [];
-	      _gaq.push(['_setAccount', 'UA-4436008-9']);
-	     
-	      _gaq.push(['_setAllowAnchor', true]);
-	      _gaq.push(['_trackPageview']);
-	      _gaq.push(['_trackPageLoadTime']);
-	     
-	      (function() {
-	        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	        })();
-	  </script>
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-4436008-9']);
+
+		_gaq.push(['_setAllowAnchor', true]);
+		_gaq.push(['_trackPageview']);
+		_gaq.push(['_trackPageLoadTime']);
+
+		(function() {
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 	<!-- END : GOOGLE ANALYTICS -->
-			
+
 </html>
