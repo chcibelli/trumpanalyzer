@@ -4,17 +4,65 @@ main{
     display: block;
 }
 header{
-    width: 100%;
+    width: 100vw;
     clear: both;
     display: block;
     margin-bottom: 60px;
+    position: fixed;
+    top: 0;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.5);
+    border-style: none;
+    border-color: transparent;
+    background-color: #FFFFFF;
+    opacity: 0.96;
+    left: 0;
+    height: 48px;
 }
-header h1{
-    color: #333;
-    font-size: 35px;
+header h1,header h2{
+    color: #000;
+    font-size: 20px;
     font-family: serif;
     text-align: center;
     display: block;
+    margin-left: 30px;
+}
+header h2{
+    margin-top: 13.400px;
+}
+header a{
+    float: left;
+}
+header h1,header h2{
+float: left;
+}
+.logo{
+    height: 100%;
+}
+.logo img{
+    padding-top: 9px;
+    padding-left: 20px;
+}
+.pipe{
+    z-index: 5;
+    width: 1px;
+    height: 22px;
+    top: 12px;
+    background-color: #000000;
+    position: fixed;
+    display: block;
+    float: left;
+    left: 128px;
+}
+.pipe:nth-child(2){
+    left: 400px;
+}
+.social{
+    float: right;
+    margin-top:12px;
+    margin-left: 10px;
+}
+.social.last{
+    margin-right: 20px;
 }
 .faces{
     width: 100%;
@@ -22,6 +70,7 @@ header h1{
     display: block;
     margin-bottom: 60px;
     height: 140px;
+    margin-top: 30px;
 }
 textarea{
     width: 95%;
