@@ -103,9 +103,9 @@ textarea:focus {
     z-index: 2;
 }
 .answer .btnR{
-    width: 180px;
+    width: 343px;
     background: #939598;
-    height: 70px;
+    height: 30px;
     clear: both;
     display: block;
     text-align: center;
