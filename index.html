@@ -77,6 +77,11 @@
 			$("#trumpanalyze").click(function() {
 				
 				var inputData = $('#inputData').val();
+				
+				if(inputData == '') {
+					alert('Preguntame algo');
+					return false;
+				}
 				inputData = inputData.toLowerCase();
 							
 				var fraseMaxima;	
