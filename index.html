@@ -50,9 +50,9 @@
 					<textarea id="inputData" placeholder="Donald responde a todo..."></textarea>
 					<div class="answer">
 						<p id="fraseMaxima"></p>
-						<a href="https://www.facebook.com/sharer.php?u=https://chcibelli.github.io/trumpanalyzer/"><img src="img/fb.png"></a>
-						<a href="https://twitter.com/intent/tweet?url=https://chcibelli.github.io/trumpanalyzer/&via=Clarincom&text=Preguntale a Donald Trump&original_referer=https://chcibelli.github.io/trumpanalyzer/"><img src="img/tw.png"></a>
-						<a href="whatsapp://send" data-text="Preguntale a Donald Trump" data-href="https://chcibelli.github.io/trumpanalyzer/"><img class="whatsapp" src="img/wp.png"></a>
+						<a class="fb-share" href="#"><img src="img/fb.png"></a>
+						<a class="tw-share" href="#"><img src="img/tw.png"></a>
+						<a class="wh-share" href="whatsapp://send" data-text="Preguntale a Donald Trump" data-href="#"><img class="whatsapp" src="img/wp.png"></a>
 						<a class="btnR">Volver a preguntar</a>
 
 
@@ -182,6 +182,20 @@
 				} else {
 					var random = Math.floor(Math.random() * 6);
 				}
+				
+				if(sid>0) {
+					var tw_share = 'https://twitter.com/intent/tweet?url=https://chcibelli.github.io/trumpanalyzer/#'+sid+'&via=clarincom&text=Preguntale a Donald Trump&original_referer=https://chcibelli.github.io/trumpanalyzer/';
+					var fb_share = 'https://www.facebook.com/sharer.php?u=https://chcibelli.github.io/trumpanalyzer/#'+sid;
+					var wh_share = 'https://chcibelli.github.io/trumpanalyzer/#'+sid+';					
+				} else {
+					var tw_share = 'https://twitter.com/intent/tweet?url=https://chcibelli.github.io/trumpanalyzer/&via=clarincom&text=Preguntale a Donald Trump&original_referer=https://chcibelli.github.io/trumpanalyzer/';
+					var fb_share = 'https://www.facebook.com/sharer.php?u=https://chcibelli.github.io/trumpanalyzer/';
+					var wh_share = 'https://chcibelli.github.io/trumpanalyzer/';
+				}
+
+				$('.fb-share').attr('href',fb_share);
+				$('.tw-share').attr('href',tw_share);
+				$('.wh-share').data('href',wh_share);
 
 				$(".faces span:eq(" + random + ")").addClass("active");
 				$('#fraseMaxima').html(fraseMaxima);
