@@ -66,16 +66,42 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 
-
 			var jsonData;
+			var hash = '';
 
 			var SPREADSHEET_ID = '1R8_6iBrV4ee8Xp6N0gcZaDYLr929cq-kHWsAeuuzZBs';
 			$.googleSheetToJSON(SPREADSHEET_ID).done(function(rows) {
 				jsonData = rows;
+
+				if(window.location.hash.replace('#','')) {
+					hash = window.location.hash.replace('#','');
+					
+					var ii = 1;
+					$.each(jsonData, function(key, value) {
+						if(ii == hash) {
+	
+							$("body").removeClass("noTransition");
+							var question = $("textarea").val();
+							$(".question").html(question);
+							$(".question").addClass("active");
+							$(".contentEdit").addClass("desactive");
+							$("section").addClass("execute");
+	
+							var random = Math.floor(Math.random() * 6);
+							$(".faces span:eq(" + random + ")").addClass("active");
+							$('#fraseMaxima').html(value.frase);
+			
+							setShareUrl(ii);
+	
+						}
+						ii = ii+1;
+					});					
+					
+				}
+
 			}).fail(function(err) {
 				console.log('error!', err);
 			});
-									
 						
 			var random = Math.floor(Math.random() * 6);
 			$(".faces span:eq(" + random + ")").addClass("spanOne");
@@ -142,33 +168,6 @@
 			
 			if(!isMobile) {
 				$('.whatsapp').hide();
-			}
-
-			var hash = '';
-			if(window.location.hash.replace('#','')) {
-				hash = window.location.hash.replace('#','');
-				
-				var ii = 1;
-				$.each(jsonData, function(key, value) {
-					if(ii == hash) {
-
-						$("body").removeClass("noTransition");
-						var question = $("textarea").val();
-						$(".question").html(question);
-						$(".question").addClass("active");
-						$(".contentEdit").addClass("desactive");
-						$("section").addClass("execute");
-
-						var random = Math.floor(Math.random() * 6);
-						$(".faces span:eq(" + random + ")").addClass("active");
-						$('#fraseMaxima').html(value.frase);
-		
-						setShareUrl(ii);
-
-					}
-					ii = ii+1;
-				});					
-				
 			}
 
 			$("#trumpanalyze").click(function() {
