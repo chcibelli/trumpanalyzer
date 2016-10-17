@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>Preguntale a Trump</title>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/autosize.js"></script>
+		<script type="text/javascript" src="js/jquery-google-sheet-to-json.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<main>
+			<header>
+				<h1>Preguntale a Trump</h1>
+			</header>
+
+			<section>
+				<div class="question">
+					Pregunta
+				</div>
+				<div class="faces">
+					<span class="trump1"></span>
+					<span class="trump2"></span>
+					<span class="trump3"></span>
+					<span class="trump4"></span>
+					<span class="trump5"></span>
+					<span class="trump6"></span>
+				</div>
+				<div class="contentEdit">
+					<textarea id="inputData" placeholder="El gurú que todo lo sabe..."></textarea>
+					<div class="answer">
+						<p id="fraseMaxima"></p>
+						<img src="img/fb.png">
+						<img src="img/tw.png">
+						<img src="img/wp.png">
+						<a class="btnR">Volver a preguntar</a>
+
+					</div>
+					<a class="btn" id="trumpanalyze">Preguntá</a>
+				</div>
+			</section>
+		</main>
+	</body>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var random = Math.floor(Math.random() * 6);
+			$(".faces span:eq(" + random + ")").addClass("spanOne");
+
+			autosize(document.querySelectorAll('textarea'));
+			
+			$(".btnR").click(function() {
+				$("body").addClass("noTransition");
+				$(".question").removeClass("active");
+				$(".contentEdit").removeClass("desactive");
+				$(".faces span.active").removeClass("active");
+				$("section").removeClass("execute");
+				$("textarea").val("");
+
+			});
+
+			function trim1(str) {
+				return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+			}
+
+			var jsonData;
+
+			var SPREADSHEET_ID = '1R8_6iBrV4ee8Xp6N0gcZaDYLr929cq-kHWsAeuuzZBs';
+			$.googleSheetToJSON(SPREADSHEET_ID).done(function(rows) {
+				jsonData = rows;
+			}).fail(function(err) {
+				console.log('error!', err);
+			});
+
+			$("#trumpanalyze").click(function() {
+				
+				var inputData = $('#inputData').val();
+				inputData = inputData.toLowerCase();
+							
+				var fraseMaxima;	
+				var max = 0;
+								
+				$.each(jsonData, function(key, value) {
+					var frase = value.frases;
+					var tags = value.tag.split(',');
+					var count = 0;
+					for (var i = 0; i < tags.length; i++) {
+						if (tags[i].replace(' ', '') != '') {
+							var t = tags[i].toLowerCase();
+							t = trim1(t);
+							count = count + (inputData.match(new RegExp(t, "g")) || []).length;
+						}
+					}
+
+					if (count) {
+						if (count > max) {
+							max = count;
+							fraseMaxima = frase;
+						}
+					}
+				});
+				
+				$("body").removeClass("noTransition");
+				var question = $("textarea").val();
+				$(".question").html(question);
+				$(".question").addClass("active");
+				$(".contentEdit").addClass("desactive");
+				$("section").addClass("execute");
+				
+				if(fraseMaxima == '') {
+					fraseMaxima = 'Haceme otra, eso es una pavada';
+					var random = 6;
+				} else {
+					var random = Math.floor(Math.random() * 6);					
+				}
+
+				$(".faces span:eq(" + random + ")").addClass("active");				
+				$('#fraseMaxima').html(fraseMaxima);			
+				
+			});
+		});
+	</script>
+</html>
