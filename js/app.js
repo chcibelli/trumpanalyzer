@@ -77,13 +77,13 @@ $(document).ready(function() {
     function setShareUrl(sid) {
         
         if(sid>0) {
-            var tw_share = 'https://twitter.com/intent/tweet?url=https://chcibelli.github.io/trumpanalyzer/#'+sid+'&via=clarincom&text=Preguntale a Donald Trump&original_referer=https://chcibelli.github.io/trumpanalyzer/';
-            var fb_share = 'https://www.facebook.com/sharer.php?u=https://chcibelli.github.io/trumpanalyzer/#'+sid;
-            var wh_share = 'https://chcibelli.github.io/trumpanalyzer/#'+sid;                   
+            var tw_share = 'https://twitter.com/intent/tweet?url=http://especiales.clarin.com/preguntale-donald-trump/#'+sid+'&via=clarincom&text=Preguntale a Donald Trump&original_referer=http://especiales.clarin.com/preguntale-donald-trump/';
+            var fb_share = 'https://www.facebook.com/sharer.php?u=http://especiales.clarin.com/preguntale-donald-trump/#'+sid;
+            var wh_share = 'http://especiales.clarin.com/preguntale-donald-trump/#'+sid;                   
         } else {
-            var tw_share = 'https://twitter.com/intent/tweet?url=https://chcibelli.github.io/trumpanalyzer/&via=clarincom&text=Preguntale a Donald Trump&original_referer=https://chcibelli.github.io/trumpanalyzer/';
-            var fb_share = 'https://www.facebook.com/sharer.php?u=https://chcibelli.github.io/trumpanalyzer/';
-            var wh_share = 'https://chcibelli.github.io/trumpanalyzer/';
+            var tw_share = 'https://twitter.com/intent/tweet?url=http://especiales.clarin.com/preguntale-donald-trump/&via=clarincom&text=Preguntale a Donald Trump&original_referer=http://especiales.clarin.com/preguntale-donald-trump/';
+            var fb_share = 'https://www.facebook.com/sharer.php?u=http://especiales.clarin.com/preguntale-donald-trump/';
+            var wh_share = 'http://especiales.clarin.com/preguntale-donald-trump/';
         }
 
         $('.fb-share').attr('href',fb_share);
