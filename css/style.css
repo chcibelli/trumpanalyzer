@@ -238,4 +238,9 @@ textarea:focus {
     .logo img{
         padding-left: 10px;
     }
+    .answer .btnR{
+        width: 290px;
+        font-size: 20px;
+        height: 25px;
+    }
 }
