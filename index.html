@@ -102,6 +102,24 @@
 			  }
 			 
 			})();
+			
+			function setShareUrl(sid) {
+				
+				if(sid>0) {
+					var tw_share = 'https://twitter.com/intent/tweet?url=https://chcibelli.github.io/trumpanalyzer/#'+sid+'&via=clarincom&text=Preguntale a Donald Trump&original_referer=https://chcibelli.github.io/trumpanalyzer/';
+					var fb_share = 'https://www.facebook.com/sharer.php?u=https://chcibelli.github.io/trumpanalyzer/#'+sid;
+					var wh_share = 'https://chcibelli.github.io/trumpanalyzer/#'+sid;					
+				} else {
+					var tw_share = 'https://twitter.com/intent/tweet?url=https://chcibelli.github.io/trumpanalyzer/&via=clarincom&text=Preguntale a Donald Trump&original_referer=https://chcibelli.github.io/trumpanalyzer/';
+					var fb_share = 'https://www.facebook.com/sharer.php?u=https://chcibelli.github.io/trumpanalyzer/';
+					var wh_share = 'https://chcibelli.github.io/trumpanalyzer/';
+				}
+
+				$('.fb-share').attr('href',fb_share);
+				$('.tw-share').attr('href',tw_share);
+				$('.wh-share').data('href',wh_share);
+				
+			}
 
 			function trim1(str) {
 				return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
@@ -127,6 +145,28 @@
 			var hash = '';
 			if(window.location.hash.replace('#','')) {
 				hash = window.location.hash.replace('#','');
+				
+				var ii = 1;
+				$.each(jsonData, function(key, value) {
+					if(ii == hash) {
+
+						$("body").removeClass("noTransition");
+						var question = $("textarea").val();
+						$(".question").html(question);
+						$(".question").addClass("active");
+						$(".contentEdit").addClass("desactive");
+						$("section").addClass("execute");
+
+						var random = Math.floor(Math.random() * 6);
+						$(".faces span:eq(" + random + ")").addClass("active");
+						$('#fraseMaxima').html(value.frase);
+		
+						setShareUrl(ii);
+
+					}
+					ii = ii+1;
+				});					
+				
 			}
 
 			$("#trumpanalyze").click(function() {
@@ -188,19 +228,7 @@
 					var random = Math.floor(Math.random() * 6);
 				}
 				
-				if(sid>0) {
-					var tw_share = 'https://twitter.com/intent/tweet?url=https://chcibelli.github.io/trumpanalyzer/#'+sid+'&via=clarincom&text=Preguntale a Donald Trump&original_referer=https://chcibelli.github.io/trumpanalyzer/';
-					var fb_share = 'https://www.facebook.com/sharer.php?u=https://chcibelli.github.io/trumpanalyzer/#'+sid;
-					var wh_share = 'https://chcibelli.github.io/trumpanalyzer/#'+sid;					
-				} else {
-					var tw_share = 'https://twitter.com/intent/tweet?url=https://chcibelli.github.io/trumpanalyzer/&via=clarincom&text=Preguntale a Donald Trump&original_referer=https://chcibelli.github.io/trumpanalyzer/';
-					var fb_share = 'https://www.facebook.com/sharer.php?u=https://chcibelli.github.io/trumpanalyzer/';
-					var wh_share = 'https://chcibelli.github.io/trumpanalyzer/';
-				}
-
-				$('.fb-share').attr('href',fb_share);
-				$('.tw-share').attr('href',tw_share);
-				$('.wh-share').data('href',wh_share);
+				setShareUrl(sid);
 
 				$(".faces span:eq(" + random + ")").addClass("active");
 				$('#fraseMaxima').html(fraseMaxima);
