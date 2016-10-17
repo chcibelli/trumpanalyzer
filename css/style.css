@@ -232,4 +232,10 @@ textarea:focus {
         margin: 60px auto;
         padding: 10px;
     }
+    .pipe,header h1,header h2 {
+        display: none;
+    }
+    .logo img{
+        padding-left: 10px;
+    }
 }
