@@ -114,6 +114,7 @@ $(document).ready(function() {
         }
         inputData = inputData.toLowerCase();
 
+        var frasesCandidatas = [];
         var fraseMaxima = '';
         var max = 0;
         var sid = 0;
@@ -132,13 +133,17 @@ $(document).ready(function() {
             }
             
             if (count) {
-                if (count > max) {
-                    max = count;
-                    fraseMaxima = frase;
-                    sid = value.fid;
+                if (count > 0 && count >= max) {
+                    max = count;                    
+                    frasesCandidatas.push(value.fid);
                 }
             }
         });
+        
+        
+        console.log(frasesCandidatas);
+        
+        return false;
         
         $("body").removeClass("noTransition");
         var question = $("textarea").val();
