@@ -120,6 +120,7 @@ $(document).ready(function() {
             return false;
         }
         inputData = inputData.toLowerCase();
+        inputData = normalize(inputData);
 
         var frasesCandidatas = [];
         var allFrases = [];
@@ -136,7 +137,12 @@ $(document).ready(function() {
                     var t = tags[i].toLowerCase();
                     t = normalize(t);
                     t = trim1(t);
-                    count = count + (inputData.match(new RegExp(t, "g")) || []).length;
+                    
+                    var re = new RegExp('\\b' + t + '\\b', 'g');
+                    if(re.test(inputData)) {
+                    	count = count+1;
+                    }
+                    //count = count + (inputData.match(new RegExp(t, "g")) || []).length;
                 }
             }
             
