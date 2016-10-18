@@ -73,7 +73,7 @@ float: left;
     height: 140px;
     margin-top: 30px;
 }
-textarea{
+#inputdata{
     width: 95%;
     display: block;
     clear: both;
@@ -93,7 +93,7 @@ textarea{
     position: relative;
     z-index: 1;
 }
-textarea:focus {
+#inputdata:focus {
     outline: none !important;
     /*border:1px solid red;*/
     box-shadow: 0 0 10px #ccc;
@@ -131,7 +131,7 @@ textarea:focus {
 .question.active{
     opacity: 1;
 }
-.contentEdit.desactive textarea,.contentEdit.desactive .btn{
+.contentEdit.desactive #inputdata,.contentEdit.desactive .btn{
     opacity: 0;
 }
 .contentEdit{
@@ -205,7 +205,7 @@ textarea:focus {
 .faces span.active{
     background-position: 0 -158px;
 }
-.noTransition .faces span,.noTransition .answer .btnR,.noTransition .answer,.noTransition .question,.noTransition .btn,.noTransition textarea{
+.noTransition .faces span,.noTransition .answer .btnR,.noTransition .answer,.noTransition .question,.noTransition .btn,.noTransition #inputdata{
     transition: all .0s;
     -webkit-transition: all .0s;
 }
@@ -228,7 +228,7 @@ textarea:focus {
         margin: 0 auto;
         float: inherit;
     }
-    textarea{
+    #inputdata{
         width: 85vw;
         margin: 60px auto;
         padding: 10px;
