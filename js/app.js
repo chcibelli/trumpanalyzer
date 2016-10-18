@@ -147,12 +147,7 @@ $(document).ready(function() {
 			sid = frasesCandidatas[Math.floor(Math.random() * frasesCandidatas.length)];
 			fraseMaxima = allFrases[sid];
         }
-        
-        console.log(allFrases);
-        console.log(fraseMaxima);
-        console.log(sid);
                 
-        
         $("body").removeClass("noTransition");
         var question = $("textarea").val();
         $(".question").html(question);
@@ -174,7 +169,6 @@ $(document).ready(function() {
             var random = Math.floor(Math.random() * 6);
         }
         
-        console.log(sid);
         setShareUrl(sid);
 
         $(".faces span:eq(" + random + ")").addClass("active");
