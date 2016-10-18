@@ -143,6 +143,8 @@ $(document).ready(function() {
             }
         });
         
+        console.log(frasesCandidatas);
+        
         if(frasesCandidatas.length > 0) {
 			sid = frasesCandidatas[Math.floor(Math.random() * frasesCandidatas.length)];
 			fraseMaxima = allFrases[sid];
