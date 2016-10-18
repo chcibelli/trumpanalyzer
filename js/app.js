@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+	("#inputData").keyup(function(e){
+	    if((e.keyCode || e.which) == 13) {
+	    	$('#trumpanalyze').trigger('click');
+	    }
+	});
+
     var jsonData;
     var hash = '';
 
