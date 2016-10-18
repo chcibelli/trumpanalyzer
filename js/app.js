@@ -114,7 +114,7 @@ $(document).ready(function() {
 
         var inputData = $('#inputData').val();
 
-        if (inputData == '') {
+        if (trim1(inputData) == '') {
             alert('Preguntame algo');
             return false;
         }
