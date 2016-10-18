@@ -115,6 +115,7 @@ $(document).ready(function() {
         inputData = inputData.toLowerCase();
 
         var frasesCandidatas = [];
+        var allFrases = [];
         var fraseMaxima = '';
         var max = 0;
         var sid = 0;
@@ -132,6 +133,8 @@ $(document).ready(function() {
                 }
             }
             
+            allFrases[value.fid] = value.frases;
+            
             if (count) {
                 if (count > 0 && count >= max) {
                     max = count;                    
@@ -140,10 +143,15 @@ $(document).ready(function() {
             }
         });
         
+        if(frasesCandidatas.length > 0) {
+			sid = frasesCandidatas[Math.floor(Math.random() * frasesCandidatas.length)];
+			fraseMaxima = allFrases[sid];
+        }
         
-        console.log(frasesCandidatas);
-        
-        return false;
+        console.log(allFrases);
+        console.log(fraseMaxima);
+        console.log(sid);
+                
         
         $("body").removeClass("noTransition");
         var question = $("textarea").val();
