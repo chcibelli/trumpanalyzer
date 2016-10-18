@@ -116,7 +116,6 @@ $(document).ready(function() {
 
         var fraseMaxima = '';
         var max = 0;
-        var fid = 1;
         var sid = 0;
         
         $.each(jsonData, function(key, value) {
@@ -132,13 +131,11 @@ $(document).ready(function() {
                 }
             }
             
-            fid = fid + 1;
-
             if (count) {
                 if (count > max) {
                     max = count;
                     fraseMaxima = frase;
-                    sid = fid;
+                    sid = value.fid;
                 }
             }
         });
@@ -156,13 +153,15 @@ $(document).ready(function() {
                 "Haceme otra, eso es una pavada",
                 "Esa pregunta está amañada, tira otra"
             ];
-            
+
             fraseMaxima = frasesRandom[Math.floor(Math.random() * frasesRandom.length)]
             var random = 5;
+
         } else {
             var random = Math.floor(Math.random() * 6);
         }
         
+        console.log(sid);
         setShareUrl(sid);
 
         $(".faces span:eq(" + random + ")").addClass("active");

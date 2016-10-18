@@ -7,7 +7,7 @@
 		<script type="text/javascript" src="js/autosize.min.js"></script>
 		<script type="text/javascript" src="js/jquery-google-sheet-to-json.min.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
-		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/app.js?v=1"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -114,5 +114,31 @@
 		})();
 	</script>
 	<!-- END : GOOGLE ANALYTICS -->
+
+	<!-- BEGIN: CHARTBEAT -->
+	   <script type='text/javascript'>
+	    var _sf_async_config={};
+	    /** CONFIGURATION START **/
+	    _sf_async_config.uid = 27977;
+	    _sf_async_config.domain = 'especiales.clarin.com';
+	    _sf_async_config.useCanonical = true;
+	    _sf_async_config.sections = 'Politica';  //CHANGE THIS
+	    _sf_async_config.authors = 'Clarin';    //CHANGE THIS
+	    /** CONFIGURATION END **/
+	    (function(){
+	      function loadChartbeat() {
+	        window._sf_endpt=(new Date()).getTime();
+	        var e = document.createElement('script');
+	        e.setAttribute('language', 'javascript');
+	        e.setAttribute('type', 'text/javascript');
+	        e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+	        document.body.appendChild(e);
+	      }
+	      var oldonload = window.onload;
+	      window.onload = (typeof window.onload != 'function') ?
+	         loadChartbeat : function() { oldonload(); loadChartbeat(); };
+	    })();
+	</script>
+	<!-- END: CHARTBEAT -->
 
 </html>
